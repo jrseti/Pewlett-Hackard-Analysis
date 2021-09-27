@@ -5,7 +5,7 @@
 -- Dumped from database version 13.4
 -- Dumped by pg_dump version 13.4
 
--- Started on 2021-09-26 10:54:28 PDT
+-- Started on 2021-09-27 15:56:13 PDT
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -36,13 +36,13 @@ CREATE TABLE public.departments (
 ALTER TABLE public.departments OWNER TO postgres;
 
 --
--- TOC entry 205 (class 1259 OID 16451)
+-- TOC entry 204 (class 1259 OID 16459)
 -- Name: dept_emp; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.dept_emp (
-    dept_no character varying NOT NULL,
     emp_no integer NOT NULL,
+    dept_no character varying NOT NULL,
     from_date date NOT NULL,
     to_date date NOT NULL
 );
@@ -51,7 +51,7 @@ CREATE TABLE public.dept_emp (
 ALTER TABLE public.dept_emp OWNER TO postgres;
 
 --
--- TOC entry 202 (class 1259 OID 16400)
+-- TOC entry 205 (class 1259 OID 16465)
 -- Name: dept_manager; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -83,7 +83,7 @@ CREATE TABLE public.employees (
 ALTER TABLE public.employees OWNER TO postgres;
 
 --
--- TOC entry 204 (class 1259 OID 16446)
+-- TOC entry 203 (class 1259 OID 16446)
 -- Name: salaries; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -98,7 +98,7 @@ CREATE TABLE public.salaries (
 ALTER TABLE public.salaries OWNER TO postgres;
 
 --
--- TOC entry 203 (class 1259 OID 16433)
+-- TOC entry 202 (class 1259 OID 16433)
 -- Name: titles; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -131,7 +131,7 @@ ALTER TABLE ONLY public.departments
 
 
 --
--- TOC entry 3143 (class 2606 OID 16404)
+-- TOC entry 3147 (class 2606 OID 16469)
 -- Name: dept_manager dept_manager_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -149,7 +149,7 @@ ALTER TABLE ONLY public.employees
 
 
 --
--- TOC entry 3147 (class 2606 OID 16450)
+-- TOC entry 3145 (class 2606 OID 16450)
 -- Name: salaries pk_Salaries; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -158,7 +158,7 @@ ALTER TABLE ONLY public.salaries
 
 
 --
--- TOC entry 3145 (class 2606 OID 16440)
+-- TOC entry 3143 (class 2606 OID 16440)
 -- Name: titles pk_Titles; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -167,16 +167,7 @@ ALTER TABLE ONLY public.titles
 
 
 --
--- TOC entry 3149 (class 2606 OID 16458)
--- Name: dept_emp pk_dept_emp; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.dept_emp
-    ADD CONSTRAINT pk_dept_emp PRIMARY KEY (dept_no, emp_no);
-
-
---
--- TOC entry 3151 (class 2606 OID 16410)
+-- TOC entry 3149 (class 2606 OID 16475)
 -- Name: dept_manager dept_manager_dept_no_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -185,7 +176,7 @@ ALTER TABLE ONLY public.dept_manager
 
 
 --
--- TOC entry 3150 (class 2606 OID 16405)
+-- TOC entry 3148 (class 2606 OID 16470)
 -- Name: dept_manager dept_manager_emp_no_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -193,7 +184,7 @@ ALTER TABLE ONLY public.dept_manager
     ADD CONSTRAINT dept_manager_emp_no_fkey FOREIGN KEY (emp_no) REFERENCES public.employees(emp_no);
 
 
--- Completed on 2021-09-26 10:54:28 PDT
+-- Completed on 2021-09-27 15:56:14 PDT
 
 --
 -- PostgreSQL database dump complete
